@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">Meteorite Landings</string>
+
+    <string name="action_cancel">Cancel</string>
+    <string name="action_retry">Retry</string>
+    <string name="action_continue_offline">Continue with offline data</string>
+    <string name="action_clear_filter">Clear filter</string>
+
+    <string name="splash_synchronizing">Synchronizing data…</string>
+    <string name="splash_error_title">Data Synchronization Failed</string>
+    <string name="splash_error_message_no_db">Failed to connect to the server. Please check your internet connection and try again. There are no local data to continue without internet connection.</string>
+    <string name="splash_error_message_with_db">Failed to connect to the server. Please check your internet connection and try again or continue with local offline data.</string>
+
+    <string name="list_empty_syncing">No data in database. Syncing from API…</string>
+
+    <string name="list_item_date">Date: %s</string>
+    <string name="list_item_reclassification">Classification: %s</string>
+    <string name="list_item_mass">Weight: %s g</string>
+    <string name="list_item_image_description">Static Map for  %s</string>
+
+    <string name="error">Error</string>
+    <string name="unknown_error">Unknown Error</string>
+    <string name="error_location">Location not available.</string>
+    <string name="error_database">No data in database.</string>
+    <string name="error_filter">No data found for the selected filter.</string>
+    <string name="empty_card_image_desc">Image</string>
+</resources>

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "741054018551",
+    "project_id": "meteorites-landings",
+    "storage_bucket": "meteorites-landings.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:741054018551:android:c591fe5d422ab77b9d34f2",
+        "android_client_info": {
+          "package_name": "cz.vostinak.meteoritelandings"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBq7LkG2n9tB1Kmev08wLlMLB8GhH0NN7Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">Meteorite Landings CZ</string>
+
+    <string name="action_cancel">Zrušit</string>
+    <string name="action_retry">Opakovat</string>
+    <string name="action_continue_offline">Pokračovat s offline daty</string>
+    <string name="action_clear_filter">Vymazat filter</string>
+
+    <string name="splash_synchronizing">Synchronizuji data…</string>
+    <string name="splash_error_title">Synchronizace dat selhala</string>
+    <string name="splash_error_message_no_db">Připojení k servru selhalo. Zkontrolujte prosím Vaše připojení k internetu a zopakujte akci. Nemáte uložena žádná lokální data pro pokračování.</string>
+    <string name="splash_error_message_with_db">Připojení k servru selhalo. Zkontrolujte prosím Vaše připojení k internetu a zopakujte akci, nebo pokračujte s lokálními offline daty.</string>
+
+    <string name="list_empty_syncing">Žádná data v databázi. Synchronizuji z API…</string>
+
+    <string name="list_item_date">Datum: %s</string>
+    <string name="list_item_reclassification">Klasifikace: %s</string>
+    <string name="list_item_mass">Váha: %s g</string>
+    <string name="list_item_image_description">Statická mapa pro  %s</string>
+
+    <string name="error">Chyba</string>
+    <string name="unknown_error">Neznámá chyba</string>
+    <string name="error_location">Poloha není dostupná.</string>
+    <string name="error_database">Databáze neobsahuje žádná data.</string>
+    <string name="error_filter">Pro zvolený filtr nebyla nalezena žádná data.</string>
+    <string name="empty_card_image_desc">Obrázek</string>
+</resources>
