@@ -7,7 +7,6 @@ import android.content.pm.PackageManager
 import android.location.Location
 import android.net.Uri
 import android.os.Bundle
-import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
@@ -17,7 +16,6 @@ import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProvider
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
-import cz.vostinak.meteoritelandings.BuildConfig
 import cz.vostinak.meteoritelandings.api.nasa.to.MeteoriteApiTO
 import cz.vostinak.meteoritelandings.ui.gui.list.veiwmodel.MainViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -107,13 +105,6 @@ class SingleActivity: ComponentActivity() {
             } else {
                 // Permission denied
                 viewModel.updateLocationPermissionGranted(locationPermissionGranted = false)
-                if(BuildConfig.DEBUG) {
-                    Toast.makeText(
-                        this,
-                        "Location permission denied",
-                        Toast.LENGTH_SHORT
-                    ).show()
-                }
                 viewModel.setLocation(null)
             }
         }
@@ -131,23 +122,6 @@ class SingleActivity: ComponentActivity() {
         }
 
         fusedLocationClient.lastLocation.addOnSuccessListener { location: Location? ->
-            if(BuildConfig.DEBUG) {
-                if (location != null) {
-                    // Handle location object (e.g., show latitude and longitude)
-                    Toast.makeText(
-                        this,
-                        "Location: ${location.latitude}, ${location.longitude}",
-                        Toast.LENGTH_LONG
-                    ).show()
-                } else {
-                    Toast.makeText(
-                        this,
-                        "Location not found",
-                        Toast.LENGTH_SHORT
-                    ).show()
-                }
-            }
-
             viewModel.setLocation(location)
         }
     }
