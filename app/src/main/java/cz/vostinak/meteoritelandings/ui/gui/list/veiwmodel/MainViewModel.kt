@@ -215,7 +215,22 @@ class MainViewModel @Inject constructor(
         viewModelScope.launch {
             _currentBounds.value = newBounds
 
-            meteoritesList.value = repository.getMeteoritesWithinBounds(newBounds)
+            val longitudeDiff = newBounds.northeast.longitude - newBounds.southwest.longitude
+            if(longitudeDiff < 30) {
+                meteoritesList.value = repository.getMeteoritesWithinBounds(newBounds)
+                _mapState.update {
+                    it.copy(
+                        errorMessage = null
+                    )
+                }
+            } else {
+                meteoritesList.value = listOf()
+                _mapState.update {
+                    it.copy(
+                        errorMessage = context.getString(R.string.map_error_zoom)
+                    )
+                }
+            }
         }
     }
 

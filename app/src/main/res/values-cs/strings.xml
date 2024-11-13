@@ -18,6 +18,8 @@
     <string name="list_item_mass">Váha: %s g</string>
     <string name="list_item_image_description">Statická mapa pro  %s</string>
 
+    <string name="map_error_zoom">Přibližte mapu pro zobrazení dat</string>
+
     <string name="error">Chyba</string>
     <string name="unknown_error">Neznámá chyba</string>
     <string name="error_location">Poloha není dostupná.</string>

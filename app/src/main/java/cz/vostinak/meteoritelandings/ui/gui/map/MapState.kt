@@ -29,4 +29,6 @@ data class MapState(
     val selectedMeteorite: MeteoriteApiTO? = null,
     /** Default map center */
     val defaultMapCenter: LatLng = LatLng(0.0, 0.0),
+    /** Error message */
+    val errorMessage: String? = null
 )

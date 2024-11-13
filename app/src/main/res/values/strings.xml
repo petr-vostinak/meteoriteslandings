@@ -18,6 +18,8 @@
     <string name="list_item_mass">Weight: %s g</string>
     <string name="list_item_image_description">Static Map for  %s</string>
 
+    <string name="map_error_zoom">Zoom in to see data</string>
+
     <string name="error">Error</string>
     <string name="unknown_error">Unknown Error</string>
     <string name="error_location">Location not available.</string>
