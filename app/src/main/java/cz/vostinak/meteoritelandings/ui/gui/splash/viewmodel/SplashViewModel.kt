@@ -28,9 +28,6 @@ class SplashViewModel @Inject constructor(
         const val TIME_LIMIT: Long = 1000
     }
 
-    /** List of meteorites. */
-    private val meteoritesList = mutableListOf<MeteoriteApiTO>()
-
     /** Screen state. Mutable private. */
     private val _state = MutableStateFlow(SplashScreenState())
     /** Screen state. Immutable public. */
@@ -78,14 +75,20 @@ class SplashViewModel @Inject constructor(
 
         if(response is Resource.Success) {
             if(response.data?.isNotEmpty() == true) {
-                response.data.let { meteoritesList.addAll(it) }
                 if(response.data.size < DEFAULT_LIMIT) { // Last page loaded
-                    saveMeteoritesToDb()
+                    saveMeteoritesToDb(response.data)
                 } else { // Load next page
+                    saveMeteoritesToDb(response.data)
+
+                    if(offset == 0) {
+                        repository.markSyncTime()
+                        _state.value = SplashScreenState(
+                            syncDone = true,
+                            error = SyncStateEnum.SYNC_DONE
+                        )
+                    }
                     loadData(DEFAULT_LIMIT, offset + response.data.size)
                 }
-            } else {
-                saveMeteoritesToDb()
             }
         } else {
             if(repository.isDbEmpty()) {
@@ -105,14 +108,9 @@ class SplashViewModel @Inject constructor(
     /**
      * Save meteorites to database.
      */
-    private fun saveMeteoritesToDb() {
+    private fun saveMeteoritesToDb(meteorites: List<MeteoriteApiTO>) {
         viewModelScope.launch(Dispatchers.Default) {
-            repository.saveMeteoritesToDb(meteoritesList)
-            repository.markSyncTime()
-            _state.value = SplashScreenState(
-                syncDone = true,
-                error = SyncStateEnum.SYNC_DONE
-            )
+            repository.saveMeteoritesToDb(meteorites)
         }
     }
 
