@@ -48,12 +48,12 @@ android {
             buildConfigField(
                 type = "String",
                 name = "API_APP_TOKEN",
-                value = apiAppToken
+                value = "\"$apiAppToken\""
             )
             buildConfigField(
                 type = "String",
                 name = "MAPS_API_KEY",
-                value = mapApiKey
+                value = "\"$mapApiKey\""
             )
             manifestPlaceholders["MAPS_API_KEY"] = mapApiKey
         }
@@ -71,12 +71,12 @@ android {
             buildConfigField(
                 type = "String",
                 name = "API_APP_TOKEN",
-                value = apiAppToken
+                value = "$apiAppToken\""
             )
             buildConfigField(
                 type = "String",
                 name = "MAPS_API_KEY",
-                value = mapApiKey
+                value = "\"$mapApiKey\""
             )
             manifestPlaceholders["MAPS_API_KEY"] = mapApiKey
         }
