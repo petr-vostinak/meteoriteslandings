@@ -2,6 +2,10 @@ package cz.vostinak.meteoritelandings.db
 
 import androidx.room.TypeConverter
 
+
+/**
+ * Type converter for double.
+ */
 class DoubleConverter {
 
     /**

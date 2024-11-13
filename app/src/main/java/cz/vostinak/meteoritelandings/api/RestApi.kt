@@ -5,7 +5,6 @@ import cz.vostinak.meteoritelandings.BuildConfig
 import cz.vostinak.meteoritelandings.api.common.NetworkResponseAdapterFactory
 import cz.vostinak.meteoritelandings.api.common.to.RequestTOHolder
 import cz.vostinak.meteoritelandings.api.nasa.DateDeserializer
-import cz.vostinak.meteoritelandings.api.nasa.NasaRestAPI
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -20,22 +19,14 @@ import java.util.concurrent.TimeUnit
  */
 object RestApi {
 
-    private var nasaRestAPIfield: NasaRestAPI? = null
-    /** Nasa API */
-    @JvmStatic val nasaRestAPI: NasaRestAPI
-        get() {
-            nasaRestAPIfield = nasaRestAPIfield ?: restAdapter.create(NasaRestAPI::class.java)
-            return nasaRestAPIfield!!
-        }
-
-    /** Sdilena instance okHttp klienta */
+    /** Shared okHttp client instance */
     private var httpClientField: OkHttpClient? = null
 
-    /** Pouze synchronizacni lock pro okHttp klienta */
+    /** Sync lock for okHttp client */
     private val httpClientLock = Any()
 
     private var gsonConverterField: GsonConverterFactory? = null
-    /** Gson konvertor */
+    /** Gson converter */
     private val gsonConverter: GsonConverterFactory
         get() {
             gsonConverterField = gsonConverterField ?: GsonConverterFactory.create(
@@ -49,7 +40,6 @@ object RestApi {
     @JvmStatic
     val httpClient: OkHttpClient
         get() {
-            // okHttp optimalizace
             synchronized(httpClientLock) {
 
                 httpClientField?.let {

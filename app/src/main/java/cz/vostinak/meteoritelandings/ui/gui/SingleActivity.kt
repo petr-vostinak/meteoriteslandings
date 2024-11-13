@@ -1,7 +1,6 @@
 package cz.vostinak.meteoritelandings.ui.gui
 
 import android.Manifest
-import android.R.attr.name
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.content.pm.PackageManager

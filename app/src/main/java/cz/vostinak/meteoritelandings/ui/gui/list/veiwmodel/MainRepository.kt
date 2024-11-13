@@ -1,7 +1,6 @@
 package cz.vostinak.meteoritelandings.ui.gui.list.veiwmodel
 
 import android.content.SharedPreferences
-import android.util.Log
 import com.google.android.gms.maps.model.LatLngBounds
 import cz.vostinak.meteoritelandings.api.nasa.to.MeteoriteApiTO
 import cz.vostinak.meteoritelandings.db.MeteoriteDao
@@ -35,15 +34,10 @@ class MainRepository @Inject constructor(
     }
 
     /**
-     * Get meteorites by distance from database.
-     * @param lat Latitude.
-     * @param lng Longitude.
+     * Get meteorites within bounds.
+     * @param bounds Bounds.
      * @return List of meteorites.
      */
-    suspend fun getMeteoritesByDistance(lat: Double, lng: Double, offset: Int = 0): List<MeteoriteApiTO> {
-        return meteoriteDao.getMeteoritesByDistance(lat, lng, offset)
-    }
-
     suspend fun getMeteoritesWithinBounds(bounds: LatLngBounds): List<MeteoriteApiTO> {
         return meteoriteDao.getMeteoritesWithinBounds(bounds.southwest.latitude, bounds.northeast.latitude, bounds.southwest.longitude, bounds.northeast.longitude)
     }
@@ -51,7 +45,7 @@ class MainRepository @Inject constructor(
     /**
      * Clear sync time to force sync.
      */
-    suspend fun resetSyncTime() {
+    fun resetSyncTime() {
         preferences.edit().remove(SplashRepository.SYNC_KEY).apply()
     }
 

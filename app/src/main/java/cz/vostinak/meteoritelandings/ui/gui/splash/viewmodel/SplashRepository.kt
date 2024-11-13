@@ -1,7 +1,6 @@
 package cz.vostinak.meteoritelandings.ui.gui.splash.viewmodel
 
 import android.content.SharedPreferences
-import cz.vostinak.meteoritelandings.api.RestApi
 import cz.vostinak.meteoritelandings.api.common.ApiResponse
 import cz.vostinak.meteoritelandings.api.common.Resource
 import cz.vostinak.meteoritelandings.api.nasa.NasaRestAPI

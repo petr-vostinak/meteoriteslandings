@@ -5,7 +5,6 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import retrofit2.Retrofit
 import javax.inject.Qualifier
 import javax.inject.Singleton
 
@@ -29,14 +28,6 @@ object RestApiModule {
     @Provides
     @OkHttpClient
     fun provideOkHttpClient(): okhttp3.OkHttpClient = RestApi.httpClient
-
-    fun provideRetrofit(
-        @OkHttpClient httpClient: okhttp3.OkHttpClient,
-        @BaseUrl baseUrl: String
-    ) : Retrofit = Retrofit.Builder()
-        .baseUrl("$baseUrl/")
-        .client(httpClient)
-        .build()
 
     @Singleton
     @Provides

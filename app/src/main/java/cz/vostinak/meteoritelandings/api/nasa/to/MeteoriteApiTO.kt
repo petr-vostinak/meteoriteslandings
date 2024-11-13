@@ -4,6 +4,7 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 import androidx.room.TypeConverters
 import cz.vostinak.meteoritelandings.db.DateTypeConverter
+import cz.vostinak.meteoritelandings.db.DoubleConverter
 import java.util.Date
 
 
@@ -29,9 +30,9 @@ data class MeteoriteApiTO(
     @TypeConverters(DateTypeConverter::class)
     val year: Date?,
     /** Latitude of fall */
-    @TypeConverters(DateTypeConverter::class)
+    @TypeConverters(DoubleConverter::class)
     val reclat: Double?,
     /** Longitude of fall */
-    @TypeConverters(DateTypeConverter::class)
+    @TypeConverters(DoubleConverter::class)
     val reclong: Double?
 )

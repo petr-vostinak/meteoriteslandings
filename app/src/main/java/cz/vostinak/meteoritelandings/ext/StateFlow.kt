@@ -8,11 +8,11 @@ import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.stateIn
 
 /**
- * Extension function pro funkci combine s pouzitim StateFlow
- * @param flow StateFlow ktere chceme kombinovat
- * @param scope coroutine scope v ramci ktereho se bude provadet transformace
- * @param sharingStarted strategie pro startovani a stopovani SharedFlow
- * @param transform transformacni funkce
+ * Extension function for combine with StateFlow
+ * @param flow StateFlow flow to combine with
+ * @param scope CoroutineScope
+ * @param sharingStarted SharingStarted
+ * @param transform Function to transform the values
  */
 fun <T1, T2, R> StateFlow<T1>.combineState(
     flow: StateFlow<T2>,
